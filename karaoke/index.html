@@ -16,11 +16,24 @@
 <script>
     var video = document.getElementsByTagName("video")[0];
     var lyricsDiv = document.getElementById("lyrics");
+
+    var monkP = document.createElement("p");
+    var monkImg = document.createElement("img");
+    monkImg.src = "Monkees.jpg";
+    monkP.appendChild(monkImg);
+
+    var dreamP = document.createElement("p");
+    var dreamImg = document.createElement("img");
+    dreamImg.src = "dream1.jpg";
+    dreamP.appendChild(dreamImg);
+
     video.addEventListener("timeupdate", function() {
         if (video.currentTime > 0 && video.currentTime <= 37) {
 	    lyricsDiv.innerHTML = "<p>Oh, I could hide 'neath the wings<br>Of the bluebird as she sings.<br>The six o'clock alarm would never ring.<br>But it rings and I rise,<br>Wipe the sleep out of my eyes.<br>My shavin' razor's cold and it stings.</p>";
+	    lyricsDiv.appendChild(monkP);
 	} else if (video.currentTime > 37 && video.currentTime <= 55) {
 	    lyricsDiv.innerHTML = "<p>Cheer up, Sleepy Jean.<br>Oh, what can it mean.<br>To a daydream believer<br>And a homecoming queen.</p>";
+	    lyricsDiv.appendChild(dreamP);
 	} else if (video.currentTime > 55 && video.currentTime <= 85) {
 	    lyricsDiv.innerHTML = "<p>You once thought of me<br>As a white knight on a steed.<br>Now you know how happy I can be.<br>Oh, and our good times start and end<br>Without dollar one to spend.<br>But how much, baby, do we really need.";
 	} else if (video.currentTime > 85 && video.currentTime <= 120) {
