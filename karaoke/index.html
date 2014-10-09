@@ -14,7 +14,24 @@
 <div id="lyrics"></div>
 
 <script>
-	// Complete this section and create a CSS file named style.css
+    var video = document.getElementsByTagName("video")[0];
+    var lyricsDiv = document.getElementById("lyrics");
+    video.addEventListener("timeupdate", function() {
+        if (video.currentTime > 0 && video.currentTime <= 37) {
+	    lyricsDiv.innerHTML = "<p>Oh, I could hide 'neath the wings<br>Of the bluebird as she sings.<br>The six o'clock alarm would never ring.<br>But it rings and I rise,<br>Wipe the sleep out of my eyes.<br>My shavin' razor's cold and it stings.</p>";
+	} else if (video.currentTime > 37 && video.currentTime <= 55) {
+	    lyricsDiv.innerHTML = "<p>Cheer up, Sleepy Jean.<br>Oh, what can it mean.<br>To a daydream believer<br>And a homecoming queen.</p>";
+	} else if (video.currentTime > 55 && video.currentTime <= 85) {
+	    lyricsDiv.innerHTML = "<p>You once thought of me<br>As a white knight on a steed.<br>Now you know how happy I can be.<br>Oh, and our good times start and end<br>Without dollar one to spend.<br>But how much, baby, do we really need.";
+	} else if (video.currentTime > 85 && video.currentTime <= 120) {
+	    lyricsDiv.innerHTML = "<p>Cheer up, Sleepy Jean.<br>Oh, what can it mean.<br>To a daydream believer<br>And a homecoming queen.<br>Cheer up, Sleepy Jean.<br>Oh, what can it mean.<br>To a daydream believer<br>And a homecoming queen.</p>"
+	} else if (video.currentTime > 120 && video.currentTime <= 127) {
+	    lyricsDiv.innerHTML = "<p>[Instrumental interlude]</p>";
+	} else if (video.currentTime > 127 && video.currentTime <= 162) {
+	    lyricsDiv.innerHTML = "<p>Cheer up, Sleepy Jean.<br>Oh, what can it mean.<br>To a daydream believer<br>And a homecoming queen.<br>[Repeat and fade]</p>";
+	}
+    }, false);
+
 </script>
 </body>
-</html>	
+</html>
