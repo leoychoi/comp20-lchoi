@@ -1,0 +1,18 @@
+h1 {
+    font-family: "Sans-Serif";
+    font-size: 36px;
+    text-align: center;
+    color: red;
+}
+
+video {
+    display: block;
+    margin: 0 auto;
+}
+
+p {
+    font-family: "Sans-Serif";
+    font-size: 18px;
+    text-align: center;
+    color: blue;
+}
