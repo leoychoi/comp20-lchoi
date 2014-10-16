@@ -14,27 +14,31 @@
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
       }
-//      var options = {
-//        enableHighAccuracy = false,
-//        timeout: 5000,
-//        maximumAge: 0
-//      };
       function success(pos) {
-        var crd = pos.coords;
+        crd = pos.coords;
         console.log(crd.latitude, crd.longitude, crd.accuracy);
       }
       function error(err) {
         console.warn("error: " + err.message);
       }
-
+      function dataReady() {
+        if (request.readyState === 4 && request.status === 200) {
+          console.log(request.responseText);
+        }
+      }
+      var crd;
       google.maps.event.addDomListener(window, 'load', initialize);
       navigator.geolocation.getCurrentPosition(success, error);
-      console.log("asdfsdf");
 
-//      var request = new XMLHttpRequest();
-//      request.onreadystatechange = dataReady;
-//      request.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
-//      request.send(null);
+      var params = "login=Pepper&lat="+crd.latitude+"&lng="+crd.longitude
+      var url = "http://chickenofthesea.herokuapp.com/sendLocation";
+      var request = new XMLHttpRequest();
+      request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      request.setRequestHeader("Content-length", params.length);
+      request.setRequestHeader("Connection", "close");
+      request.onreadystatechange = dataReady;
+      request.open("POST", url, true);
+      request.send(params);
     </script>
   </head>
   <body>
