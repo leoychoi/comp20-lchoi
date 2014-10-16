@@ -18,6 +18,7 @@
         crd = pos.coords;
         console.log(crd.latitude, crd.longitude, crd.accuracy);
         params = "login=Pepper&lat="+crd.latitude+"&lng="+crd.longitude
+        console.log(params);
       }
       function error(err) {
         console.warn("error: " + err.message);
@@ -32,7 +33,7 @@
       google.maps.event.addDomListener(window, 'load', initialize);
       navigator.geolocation.getCurrentPosition(success, error);
 
-      console.log(params);
+
       var url = "http://chickenofthesea.herokuapp.com/sendLocation";
       var request = new XMLHttpRequest();
       request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
