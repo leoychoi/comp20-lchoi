@@ -68,6 +68,7 @@
         students = data.students;
         for (var i = 0; i < characters.length; i++) {
 	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
+	  console.log(charLoc);
 	  image = characters[i].name + '.png';
 //	  charNotes[characters[i].name] = characters[i].loc.note;
 	  charMarkers[characters[i].name] = new google.maps.Marker({
