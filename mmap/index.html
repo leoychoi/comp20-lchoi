@@ -74,7 +74,7 @@
 	  });
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
-			    function(characters[i].name) {
+			    function() {
 	    charInfoWins[characters[i].name].setContent(charNotes[i]);
 	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
 	  });
