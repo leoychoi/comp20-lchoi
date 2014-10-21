@@ -15,6 +15,7 @@
       var charNotes = new Object();
       var charMarkers = new Object();
       var charInfoWins = new Object();
+      var activeChars;
       var students;
       var numChars = 6;
 
@@ -74,15 +75,19 @@
 	  });
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
-			    function() {
-	    charInfoWins[characters[i].name].setContent(charNotes[i]);
-	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
-	  });
+			    make_callback(characters[i]));
 	}
 
         drawCharacters();
 //        drawStudents();
 
+      }
+
+      function make_callback(character) {
+	return function() {
+	  charInfoWins[character.name].setContent(character.loc.note);
+	  charInfoWins[character.name].open(map, charMarkers[character.name]);
+	}
       }
 
       function drawCharacters() {
