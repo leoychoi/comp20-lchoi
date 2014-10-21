@@ -12,6 +12,8 @@
       var request = new XMLHttpRequest();
       var characters;
       var students;
+//      var charDict = new Object();
+//      charDict['carmen'] = 'carmen.png';
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
@@ -38,7 +40,28 @@
           console.log(request.responseText);
           characters = data[0];
           students = data[1];
+
+          parseData();
         }
+      }
+
+      function parseData() {
+        characters = data.characters;
+        students = data.students;
+
+        drawCharacters();
+        drawStudents();
+
+      }
+
+      function drawCharacters() {
+        for (var i=0; i<characters.length; i++) {
+	  image = characters[i].name + '.png';
+	  marker = new google.maps.Marker({
+	    position: characters[i];
+	    icon: image
+	  )};
+	}
       }
 
       function renderMap() {
