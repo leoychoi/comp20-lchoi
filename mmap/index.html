@@ -13,21 +13,9 @@
       var characters;
       var students;
 
-//      google.maps.event.addDomListener(window, 'load', initialize);
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
       }
-
-/*
-      function initialize() {
-        var mapOptions = {
-          center: { lat: 42.406394, lng: -71.120601},
-          zoom: 15
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-      }
-*/
 
       function success(pos) {
         crd = pos.coords;
@@ -50,7 +38,6 @@
           console.log(request.responseText);
           characters = data[0];
           students = data[1];
-          
         }
       }
 
@@ -63,7 +50,6 @@
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
         iconSize = new google.maps.Size(50,50);
-//        image = 'emoji.png';
         var icon = {
           url: 'emoji.png',
           scaledSize: iconSize
@@ -71,9 +57,14 @@
         marker = new google.maps.Marker({
           position: myPos,
           icon: icon,
-//          scaledSize:new google.maps.Size(50,50)
         });
         marker.setMap(map);
+        
+        infowindow = new google.maps.InfoWindow();
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent("I am here");
+          infowindow.open(map, marker);
+        });
       }
       
     </script>
