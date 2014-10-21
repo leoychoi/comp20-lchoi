@@ -62,12 +62,11 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-        var image = 'emoji.png'
         iconSize = new google.maps.Size(50,50);
-        var icon = new google.maps.Icon({
+        var icon = {
           url: 'emoji.png',
           size: iconSize
-        });
+        };
         marker = new google.maps.Marker({
           position: myPos,
           icon: icon
