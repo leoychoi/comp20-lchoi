@@ -17,6 +17,7 @@
       var charInfoWins = new Object();
       var students;
       var numChars = 6;
+      var activeChars;
 
       init();
 
@@ -58,8 +59,8 @@
           data = JSON.parse(request.responseText);
           console.log(data);
 //          console.log(request.responseText);
-          characters = data[0];
-          students = data[1];
+//          characters = data[0];
+//          students = data[1];
 
           parseData();
         }
@@ -71,7 +72,7 @@
         for (var i = 0; i < characters.length; i++) {
 	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
 	  image = characters[i].name + '.png';
-//	  charNotes[characters[i].name] = characters[i].loc.note;
+	  charNotes[characters[i].name] = characters[i].loc.note;
 	  charMarkers[characters[i].name] = new google.maps.Marker({
 	    position: charLoc,
 	    icon: image
@@ -79,7 +80,7 @@
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
 			    function() {
-	    charInfoWins[characters[i].name].setContent(characters[i].loc.note);
+	    charInfoWins[characters[i].name].setContent(charNotes[i]);
 	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
 	  });
 	}
