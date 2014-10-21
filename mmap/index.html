@@ -78,7 +78,7 @@
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'clock', function() {
 	    charInfoWins[characters[i].name].setContent(characters[i].loc.note);
 	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
-	  }
+	  });
 	}
 
         drawCharacters();
