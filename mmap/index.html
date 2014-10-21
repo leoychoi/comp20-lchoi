@@ -22,6 +22,8 @@
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.onreadystatechange = dataReady;
         request.send(params);
+
+        map = new google.maps.LatLng(crd.latitude, crd.longitude);
       }
       function error(err) {
         console.warn("error: " + err.message);
