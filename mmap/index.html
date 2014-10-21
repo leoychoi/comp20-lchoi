@@ -64,6 +64,13 @@
 	    icon: image
 	  });
 	  marker.setMap(map);
+
+          infowindow = new google.maps.InfoWindow();
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(characters[i].loc.note);
+            infowindow.open(map, marker);
+          });
+
 	}
       }
 
