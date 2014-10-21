@@ -62,8 +62,10 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        var image = 'emoji.png'
         marker = new google.maps.Marker({
-          position: myPos
+          position: myPos,
+          icon: image
         });
         marker.setMap(map);
       }
