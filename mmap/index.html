@@ -57,7 +57,7 @@
       function drawCharacters() {
         for (var i=0; i<characters.length; i++) {
 	  image = characters[i].name + '.png';
-//	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
+	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
 	  marker = new google.maps.Marker({
 	    position: charLoc,
 	    icon: image
