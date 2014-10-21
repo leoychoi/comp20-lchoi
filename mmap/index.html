@@ -85,42 +85,17 @@
 
       function make_callback(character) {
 	return function() {
-	  charInfoWins[character.name].setContent(character.loc.note);
+	  var string = "Name: " + character.name + "<br>Lat: " + character.loc.latitude + "<br>Long: " character.loc.longitude + "<br>Note: " + character.loc.note;
+	  charInfoWins[character.name].setContent(string);
 	  charInfoWins[character.name].open(map, charMarkers[character.name]);
 	}
       }
 
       function drawCharacters() {
-//	console.log(charMarkers);
-//	console.log(charInfoWins);
         for (var key in charMarkers) {
-//	  console.log(charMarkers[key]);
 	  if (charMarkers[key] != null) {
 	    charMarkers[key].setMap(map);
 	  }
-
-
-
-
-/*
-	  image = characters[i].name + '.png';
-	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
-	  console.log(image, charLoc);
-	  marker = new google.maps.Marker({
-	    position: charLoc,
-	    icon: image
-	  });
-	  marker.setMap(map);
-
-//	  console.log(characters[i].loc.note);
-	  charNotes[characters[i].name] = characters[i].loc.note;
-
-          infowindow = new google.maps.InfoWindow();
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(characters[i].loc.note);
-            infowindow.open(map, marker);
-          });
-*/
 
 	}
       }
@@ -149,7 +124,6 @@
           infowindow.setContent("I am here");
           infowindow.open(map, marker);
         });
-//        infowindow.open(map, marker);
       }
       
     </script>
