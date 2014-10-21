@@ -65,6 +65,8 @@
 	  });
 	  marker.setMap(map);
 
+	  console.log(characters[i].loc.note);
+
           infowindow = new google.maps.InfoWindow();
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent(characters[i].loc.note);
