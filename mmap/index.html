@@ -88,6 +88,7 @@
 
       function drawCharacters() {
         for (var i = 0; i < charMarkers.length; i++) {
+	  console.log(charMarkers[i], charInfoWins[i]);
 	  if (charMarkers[i] != null) {
 	    charMarkers[i].setMap(map);
 	  }
