@@ -76,7 +76,7 @@
 	    icon: image
 	  });
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
-	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
+	  google.maps.event.addListener(charMarkers[characters[i].test], 'click',
 			    function() {
 	    charInfoWins[characters[i].name].setContent(characters[i].loc.note);
 	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
@@ -93,7 +93,6 @@
         for (var key in charMarkers) {
 	  console.log(charMarkers[key]);
 	  if (charMarkers[key] != null) {
-	    console.log("cccccccccccccccccccc");
 	    charMarkers[key].setMap(map);
 	  }
 
