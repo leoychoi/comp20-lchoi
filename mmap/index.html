@@ -34,6 +34,7 @@
           console.log(request.responseText);
           characters = data[0];
           students = data[1];
+          
         }
       }
       var crd;
@@ -44,8 +45,9 @@
       var students;
 
       google.maps.event.addDomListener(window, 'load', initialize);
-      navigator.geolocation.getCurrentPosition(success, error);
-
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      }
     </script>
   </head>
   <body>
