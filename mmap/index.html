@@ -79,6 +79,7 @@
 	}
 
         drawCharacters();
+	drawLines();
 //        drawStudents();
 
       }
@@ -96,7 +97,19 @@
 	  if (charMarkers[key] != null) {
 	    charMarkers[key].setMap(map);
 	  }
+	}
+      }
 
+      function drawLines() {
+	for (var i = 0; i < characters.length; i++) {
+	  var endPoints = [new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude), myPos];
+	  var line = new google.maps.PolyLine({
+		path: endPoints,
+		geodesic: true,
+		strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+		});
 	}
       }
 
