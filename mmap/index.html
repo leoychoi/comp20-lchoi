@@ -85,7 +85,7 @@
 
       function make_callback(character) {
 	return function() {
-	  var string = "Name: " + character.name + "<br>Lat: " + character.loc.latitude + "<br>Long: " character.loc.longitude + "<br>Note: " + character.loc.note;
+	  var string = "Name: " + character.name + "<br>Lat: " + character.loc.latitude + "<br>Long: " + character.loc.longitude + "<br>Note: " + character.loc.note;
 	  charInfoWins[character.name].setContent(string);
 	  charInfoWins[character.name].open(map, charMarkers[character.name]);
 	}
