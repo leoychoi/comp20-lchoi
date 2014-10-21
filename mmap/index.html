@@ -75,14 +75,12 @@
 	    position: charLoc,
 	    icon: image
 	  });
-	  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
 			    function() {
 	    charInfoWins[characters[i].name].setContent(characters[i].loc.note);
 	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
 	  });
-	  console.log("bbbbbbbbbbbbbbbbb");
 	}
 
         drawCharacters();
@@ -91,9 +89,11 @@
       }
 
       function drawCharacters() {
+	console.log("aaaaaaaaaaaaaa");
         for (var i = 0; i < numChars; i++) {
+	  console.log("bbbbbbbbbbbbb");
 	  if (charMarkers[i] != null) {
-	    console.log(charMarkers[i]);
+	    console.log("cccccccccccccccccccc");
 	    charMarkers[i].setMap(map);
 	  }
 
