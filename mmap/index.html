@@ -90,11 +90,11 @@
 
       function drawCharacters() {
 	console.log(charMarkers);
-        for (var i = 0; i < numChars; i++) {
+        for (var key in charMarkers) {
 	  console.log(charMarkers[i]);
-	  if (charMarkers[i] != null) {
+	  if (charMarkers[key] != null) {
 	    console.log("cccccccccccccccccccc");
-	    charMarkers[i].setMap(map);
+	    charMarkers[key].setMap(map);
 	  }
 
 
