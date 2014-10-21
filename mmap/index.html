@@ -12,8 +12,6 @@
       var request = new XMLHttpRequest();
       var characters;
       var students;
-//      var charDict = new Object();
-//      charDict['carmen'] = 'carmen.png';
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
@@ -38,10 +36,10 @@
           data = JSON.parse(request.responseText);
           console.log(data);
           console.log(request.responseText);
-          characters = data[0];
-          students = data[1];
+//          characters = data[0];
+//          students = data[1];
 
-          parseData();
+//          parseData();
         }
       }
 
