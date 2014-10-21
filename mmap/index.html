@@ -63,15 +63,15 @@
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
         iconSize = new google.maps.Size(50,50);
-        image = 'emoji.png';
-//        var icon = {
-//          url: 'emoji.png',
-//          size: iconSize
-//        };
+//        image = 'emoji.png';
+        var icon = {
+          url: 'emoji.png',
+          scaledSize: iconSize
+        };
         marker = new google.maps.Marker({
           position: myPos,
-          icon: image,
-          scaledSize:new google.maps.Size(50,50)
+          icon: icon,
+//          scaledSize:new google.maps.Size(50,50)
         });
         marker.setMap(map);
       }
