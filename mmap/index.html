@@ -11,10 +11,30 @@
       var url = "http://chickenofthesea.herokuapp.com/sendLocation";
       var request = new XMLHttpRequest();
       var characters;
+      var charNotes = new Object();
+      var charMarkers = new Object();
+      var charInfoWins = new Object();
       var students;
+
+      init();
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
+      }
+
+      function init() {
+        charInfoWins['batman'] = null;
+        charInfoWins['carmen'] = null;
+        charInfoWins['hescott'] = null;
+        charInfoWins['nr'] = null;
+        charInfoWins['snape'] = null;
+        charInfoWins['waldo'] = null;
+        charMarkers['batman'] = null;
+        charMarkers['carmen'] = null;
+        charMarkers['hescott'] = null;
+        charMarkers['nr'] = null;
+        charMarkers['snape'] = null;
+        charMarkers['waldo'] = null;
       }
 
       function success(pos) {
@@ -46,8 +66,20 @@
       function parseData() {
         characters = data.characters;
         students = data.students;
-        console.log(characters);
-        console.log(students);
+        for (var i = 0; i < characters.length; i++) {
+	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
+	  image = characters[i].name + '.png';
+//	  charNotes[characters[i].name] = characters[i].loc.note;
+	  charMarkers[characters[i].name] = new google.maps.Marker({
+	    position: charLoc,
+	    icon: image
+	  });
+	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
+	  google.maps.event.addListener(charMarkers[characters[i].name], 'clock', function() {
+	    charInfoWins[characters[i].name].setContent(characters[i].loc.note);
+	    charInfoWins[characters[i].name].open(map, charMarkers[characters[i].name]);
+	  }
+	}
 
         drawCharacters();
 //        drawStudents();
@@ -55,7 +87,15 @@
       }
 
       function drawCharacters() {
-        for (var i = 0; i < characters.length; i++) {
+        for (var i = 0; i < charMarkers.length; i++) {
+	  if (charMarkers[i] != null) {
+	    charMarkers[i].setMap(map);
+	  }
+
+
+
+
+/*
 	  image = characters[i].name + '.png';
 	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
 	  console.log(image, charLoc);
@@ -65,13 +105,15 @@
 	  });
 	  marker.setMap(map);
 
-	  console.log(characters[i].loc.note);
+//	  console.log(characters[i].loc.note);
+	  charNotes[characters[i].name] = characters[i].loc.note;
 
           infowindow = new google.maps.InfoWindow();
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.setContent(characters[i].loc.note);
             infowindow.open(map, marker);
           });
+*/
 
 	}
       }
