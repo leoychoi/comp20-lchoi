@@ -15,6 +15,9 @@
       var charMarkers = new Object();
       var charInfoWins = new Object();
       var students;
+      var studNotes = new Object();
+      var studMarkers = new Object();
+      var studInfoWins = new Object();
       var numChars = 6;
 
       init();
@@ -66,7 +69,7 @@
         for (var i = 0; i < characters.length; i++) {
 	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
 	  image = characters[i].name + '.png';
-	  charNotes[characters[i].name] = characters[i].loc.note;
+//	  charNotes[characters[i].name] = characters[i].loc.note;
 	  charMarkers[characters[i].name] = new google.maps.Marker({
 	    position: charLoc,
 	    icon: image
@@ -74,6 +77,11 @@
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
 			    make_callback_char(characters[i]));
+	}
+
+	for (var i = 0; i < students.length; i++) {
+	  studLoc = new google.maps.LatLng(students[i].lat, students[i].long);
+//	  charNotes = 
 	}
 
         drawCharacters();
