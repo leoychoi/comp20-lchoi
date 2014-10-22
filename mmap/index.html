@@ -77,7 +77,7 @@
 	}
 
 	for (var i = 0; i < students.length; i++) {
-	  studLoc = new google.maps.LatLng(students[i].lat, students[i].long);
+	  studLoc = new google.maps.LatLng(students[i].lat, students[i].lng);
 	  studMarkers[i] = new google.maps.Marker({
 	    position: studLoc
 	  });
@@ -101,7 +101,7 @@
 
       function make_callback_stud(student, i) {
 	return function() {
-	  var string = "Login: " + student.login + "<br>Lat: " + student.lat + "<br>Long: " + student.long + "<br>Time: " + student.created_at;
+	  var string = "Login: " + student.login + "<br>Lat: " + student.lat + "<br>Long: " + student.lng + "<br>Time: " + student.created_at;
 	  studInfoWins[i].setContent(string);
 	  studInfoWins[i].open(map, studMarkers[i]);
 	}
