@@ -151,14 +151,14 @@
 
       function printDistances() {
 	var table = document.getElementById("dist-table");
-//	var trow = 0;
+	var trow = 0;
         for (var key in charDists) {
-	  var row = table.insertRow();
+	  var row = table.insertRow(trow);
 	  var cellone = row.insertCell(0);
 	  var celltwo = row.insertCell(1);
 	  cellone.innerHTML = key;
 	  celltwo.innerHTML = charDists[key];
-//	  trow++;
+	  trow++;
 //	  console.log(charDists[key]);
 	}
       }
@@ -193,6 +193,6 @@
   </head>
   <body>
 <div id="map-canvas"></div>
-<div id="dist-table"></div>
+<table id="dist-table"></table>
   </body>
 </html>
