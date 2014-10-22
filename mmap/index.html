@@ -11,11 +11,9 @@
       var url = "http://chickenofthesea.herokuapp.com/sendLocation";
       var request = new XMLHttpRequest();
       var characters;
-      var charNotes = new Object();
       var charMarkers = new Object();
       var charInfoWins = new Object();
       var students;
-      var studNotes = new Object();
       var studMarkers = new Object();
       var studInfoWins = new Object();
       var numChars = 6;
@@ -69,7 +67,6 @@
         for (var i = 0; i < characters.length; i++) {
 	  charLoc = new google.maps.LatLng(characters[i].loc.latitude, characters[i].loc.longitude);
 	  image = characters[i].name + '.png';
-//	  charNotes[characters[i].name] = characters[i].loc.note;
 	  charMarkers[characters[i].name] = new google.maps.Marker({
 	    position: charLoc,
 	    icon: image
@@ -81,7 +78,12 @@
 
 	for (var i = 0; i < students.length; i++) {
 	  studLoc = new google.maps.LatLng(students[i].lat, students[i].long);
-//	  charNotes = 
+	  studMarkers[i] = new google.maps.Marker({
+	    position: studLoc
+	  });
+	  studInfoWins[i] = new google.maps.InfoWindow();
+	  google.maps.event.addListener(studMarkers[i], 'click',
+			    make_callback_stud(students[i], i));
 	}
 
         drawCharacters();
@@ -94,6 +96,14 @@
 	  var string = "Name: " + character.name + "<br>Lat: " + character.loc.latitude + "<br>Long: " + character.loc.longitude + "<br>Note: " + character.loc.note;
 	  charInfoWins[character.name].setContent(string);
 	  charInfoWins[character.name].open(map, charMarkers[character.name]);
+	}
+      }
+
+      function make_callback_stud(student, i) {
+	return function() {
+	  var string = "Login: " + student.login + "<br>Lat: " + student.lat + "<br>Long: " + student.long + "<br>Time: " + student.created_at;
+	  studInfoWins[i].setContent(string);
+	  studInfoWins[i].open(map, studMarkers[i]);
 	}
       }
 
@@ -121,7 +131,7 @@
 
       function drawStudents() {
 	for (var i = 0; i < students.length; i++) {
-	  
+	  studMarkers[i].setMap(map);
 	}
       }
 
