@@ -11,11 +11,9 @@
       var url = "http://chickenofthesea.herokuapp.com/sendLocation";
       var request = new XMLHttpRequest();
       var characters;
-      var activeChars;
       var charNotes = new Object();
       var charMarkers = new Object();
       var charInfoWins = new Object();
-      var activeChars;
       var students;
       var numChars = 6;
 
@@ -75,16 +73,15 @@
 	  });
 	  charInfoWins[characters[i].name] = new google.maps.InfoWindow();
 	  google.maps.event.addListener(charMarkers[characters[i].name], 'click',
-			    make_callback(characters[i]));
+			    make_callback_char(characters[i]));
 	}
 
         drawCharacters();
 	drawLines();
-//        drawStudents();
-
+        drawStudents();
       }
 
-      function make_callback(character) {
+      function make_callback_char(character) {
 	return function() {
 	  var string = "Name: " + character.name + "<br>Lat: " + character.loc.latitude + "<br>Long: " + character.loc.longitude + "<br>Note: " + character.loc.note;
 	  charInfoWins[character.name].setContent(string);
@@ -111,6 +108,12 @@
                 strokeWeight: 2
 	  });
 	  line.setMap(map);
+	}
+      }
+
+      function drawStudents() {
+	for (var i = 0; i < students.length; i++) {
+	  
 	}
       }
 
