@@ -150,8 +150,15 @@
       }
 
       function printDistances() {
+	var table = document.getElementById("dist-table");
+	var trow = 0;
         for (var key in charDists) {
-	  console.log(charDists[key]);
+	  var row = table.insertRow(trow);
+	  var cellone = row.insertCell(0);
+	  var celltwo = row.insertCell(1);
+	  cellone.innerHTML = key;
+	  celltwo.innerHTML = charDists[key];
+//	  console.log(charDists[key]);
 	}
       }
 
