@@ -101,6 +101,7 @@
         drawCharacters();
 	drawLines();
         drawStudents();
+	printDistances();
       }
 
       function make_callback_char(character) {
@@ -123,7 +124,7 @@
         for (var key in charMarkers) {
 	  if (charMarkers[key] != null) {
 	    charMarkers[key].setMap(map);
-	    console.log(charDists[key] = google.maps.geometry.spherical.computeDistanceBetween(charMarkers[key].getPosition(), myPos));
+	    charDists[key] = (google.maps.geometry.spherical.computeDistanceBetween(charMarkers[key].getPosition(), myPos) / 1609.344);
 	  }
 	}
       }
@@ -145,6 +146,12 @@
       function drawStudents() {
 	for (var i = 0; i < students.length; i++) {
 	  studMarkers[i].setMap(map);
+	}
+      }
+
+      function printDistances() {
+        for (var key in charDists) {
+	  console.log(charDists[key]);
 	}
       }
 
