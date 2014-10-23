@@ -149,6 +149,10 @@
 	}
       }
 
+      function sortNums(a, b) {
+	return a - b;
+      }
+
       function printDistances() {
 	var sortedDists = new Object;
 	var iter = 0;
@@ -158,7 +162,7 @@
 	    iter++;
 	  }
 	}
-	sortedDists.sort(function(a,b) {return a - b;});
+	sortedDists.sort(sortNums);
 	var table = document.getElementById("dist-table");
 	var trow = 0;
 
