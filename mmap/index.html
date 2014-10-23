@@ -162,10 +162,8 @@
 	    iter++;
 	  }
 	}
-	sortedDists.sort(sortNums);
+	sortedDists.sort();
 	var table = document.getElementById("dist-table");
-	var trow = 0;
-
 	for (var i = 0; i < sortedDists.length; i++) {
 	  var row = table.insertRow(i);
 	  var cellone = row.insertCell(0);
