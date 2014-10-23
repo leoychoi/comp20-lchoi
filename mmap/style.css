@@ -14,9 +14,9 @@ body {
 }
 
 #dist-table {
-/*    width: 20%;
-    height: 100%; */
-    border-collapse: collapse;
+    width: 20%;
+/*    height: 100%; 
+*/    border-collapse: collapse;
     float: right;
     font-size: 12pt;
 }
