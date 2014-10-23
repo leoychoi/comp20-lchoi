@@ -153,12 +153,14 @@
 	var table = document.getElementById("dist-table");
 	var trow = 0;
         for (var key in charDists) {
-	  var row = table.insertRow(trow);
-	  var cellone = row.insertCell(0);
-	  var celltwo = row.insertCell(1);
-	  cellone.innerHTML = key;
-	  celltwo.innerHTML = charDists[key];
-	  trow++;
+	  if (charDists[key] != null) {
+	    var row = table.insertRow(trow);
+	    var cellone = row.insertCell(0);
+	    var celltwo = row.insertCell(1);
+	    cellone.innerHTML = key;
+	    celltwo.innerHTML = charDists[key];
+	    trow++;
+	  }
 //	  console.log(charDists[key]);
 	}
       }
