@@ -164,12 +164,14 @@
 	}
 	sortedDists.sort();
 	var table = document.getElementById("dist-table");
-	for (var i = 0; i < sortedDists.length; i++) {
+	var i = 0;
+	for (var key in charDists) {
 	  var row = table.insertRow(i);
 	  var cellone = row.insertCell(0);
 	  var celltwo = row.insertCell(1);
 	  cellone.innerHTML = key;
 	  celltwo.innerHTML = sortedDists[i] + " miles";
+	  i++;
 	}
       }
 
