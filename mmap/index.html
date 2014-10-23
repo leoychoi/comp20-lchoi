@@ -150,18 +150,23 @@
       }
 
       function printDistances() {
+	var sortedDists;
+	var iter = 0;
+	for (var key in charDists) {
+	  if (charDists[key] != null) {
+	    sortedDists[iter] = charDists[key];
+	  }
+	}
+	sortedDists.sort(function(a,b) {return a - b;});
 	var table = document.getElementById("dist-table");
 	var trow = 0;
-        for (var key in charDists) {
-	  if (charDists[key] != null) {
-	    var row = table.insertRow(trow);
-	    var cellone = row.insertCell(0);
-	    var celltwo = row.insertCell(1);
-	    cellone.innerHTML = key;
-	    celltwo.innerHTML = charDists[key] + " miles";
-	    trow++;
-	  }
-//	  console.log(charDists[key]);
+
+	for (var i = 0; i < sortedDists.length; i++) {
+	  var row = table.insertRow(i);
+	  var cellone = row.insertCell(0);
+	  var celltwo = row.insertCell(1);
+	  cellone.innerHTML = key;
+	  celltwo.innerHTML = sortedDists[i] + " miles";
 	}
       }
 
