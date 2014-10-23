@@ -169,6 +169,11 @@
   	    var row = table.insertRow(i);
 	    var cellone = row.insertCell(0);
 	    var celltwo = row.insertCell(1);
+	    for (var keytwo in charDists) {
+	        if (charDists[keytwo] === sortedDists[i]) {
+		  key = keytwo;
+		}
+	    }
 	    cellone.innerHTML = key;
 	    celltwo.innerHTML = sortedDists[i] + " miles";
 	    i++;
