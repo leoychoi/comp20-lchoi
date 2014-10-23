@@ -9,12 +9,12 @@ body {
 }
 
 #map-canvas {
-    width: 100%;
-    height: 70%;
+    width: 80%;
+    height: 100%;
 }
 
 #dist-table {
-    width: 100%;
+    width: 20%;
     height: 100%;
     border-collapse: collapse;
 }
