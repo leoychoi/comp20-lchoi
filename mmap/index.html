@@ -170,13 +170,8 @@
 	    var cellone = row.insertCell(0);
 	    var celltwo = row.insertCell(1);
 	    cellone.innerHTML = key;
-	    for (var j = 0; j < sortedDists.length; j++) {
-	      if (charDists[key] === sortedDists[j]) {
-		i = j;
-	      }
-	    }
 	    celltwo.innerHTML = sortedDists[i] + " miles";
-//	    i++;
+	    i++;
 	  }
 	}
       }
