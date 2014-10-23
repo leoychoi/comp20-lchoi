@@ -162,16 +162,18 @@
 	    iter++;
 	  }
 	}
-	sortedDists.sort();
+	sortedDists.sort(sortNums);
 	var table = document.getElementById("dist-table");
 	var i = 0;
 	for (var key in charDists) {
-	  var row = table.insertRow(i);
-	  var cellone = row.insertCell(0);
-	  var celltwo = row.insertCell(1);
-	  cellone.innerHTML = key;
-	  celltwo.innerHTML = sortedDists[i] + " miles";
-	  i++;
+	  if (charDists[key] != null) {
+  	    var row = table.insertRow(i);
+	    var cellone = row.insertCell(0);
+	    var celltwo = row.insertCell(1);
+	    cellone.innerHTML = key;
+	    celltwo.innerHTML = sortedDists[i] + " miles";
+	    i++;
+	  }
 	}
       }
 
