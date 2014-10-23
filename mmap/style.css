@@ -17,4 +17,5 @@ body {
     width: 20%;
     height: 100%;
     border-collapse: collapse;
+    float: right;
 }
