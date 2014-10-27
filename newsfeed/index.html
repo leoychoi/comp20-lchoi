@@ -12,8 +12,8 @@
 	      if (e.which === 13) {
 	        var timestamp = Date.now();
 	        feed = "<br>" + timestamp + " - " + $(this).val() + feed + "<br>";
-	        $("#news").empty();
-	        $("#news").append("News...<br>" + feed);
+	        $("#messages").empty();
+	        $("#messages").append(feed);
 	        $(this).val('');
 	      }
 	    });
@@ -25,5 +25,6 @@
 	<h1>My News Feed</h1>
 	<h3>My news update: <input type="text" id="msg" name="msg" size="30" /></h3>
 	<div id="news">News...</div>
+	<div id="messages"></div>
 </body>
 </html>
