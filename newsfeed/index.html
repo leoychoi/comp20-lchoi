@@ -4,9 +4,20 @@
 
 <head>
 	<title>My News Feed</title>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
-	  // Most of your work will be done here...
+	  var feed = "";
+	  $(document).ready(function(){
+	    $("#msg").keypress(function(e) {
+	      if (e.which === 13) {
+	        var timestamp = Date.now();
+	        feed = "<br>" + timestamp + " - " + $(this).val() + feed + "<br>";
+	        $("#news").empty();
+	        $("#news").append("News...<br>" + feed);
+	        $(this).val('');
+	      }
+	    });
+	  });
 	</script>
 </head>
 
