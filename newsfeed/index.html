@@ -8,6 +8,8 @@
 	<script>
 	  var feed = "";
 	  $(document).ready(function(){
+	    feed = document.cookie.replace(/(?:(?:^|.*;\s*)feed\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+	    $("#messages").append(feed);
 	    $("#msg").keypress(function(e) {
 	      if (e.which === 13) {
 	        var timestamp = Date.now();
