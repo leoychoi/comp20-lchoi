@@ -13,6 +13,7 @@
 	    $("#msg").keypress(function(e) {
 	      if (e.which === 13) {
 	        if ($(this).val() != "") {
+	          console.log($(this).val());
 	          var timestamp = Date.now();
 	          feed = "<br>" + timestamp + " - " + $(this).val() + feed + "<br>";
 	          $("#messages").empty();
