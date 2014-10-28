@@ -12,13 +12,15 @@
 	    $("#messages").append(feed);
 	    $("#msg").keypress(function(e) {
 	      if (e.which === 13) {
-	        var timestamp = Date.now();
-	        feed = "<br>" + timestamp + " - " + $(this).val() + feed + "<br>";
-	        $("#messages").empty();
-	        $("#messages").append(feed);
-	        $(this).val('');
+	        if ($(this).val() != "") {
+	          var timestamp = Date.now();
+	          feed = "<br>" + timestamp + " - " + $(this).val() + feed + "<br>";
+	          $("#messages").empty();
+	          $("#messages").append(feed);
+	          $(this).val('');
 
-	        document.cookie = "feed=" + feed;
+	          document.cookie = "feed=" + feed;
+	        }
 	      }
 	    });
 	  });
