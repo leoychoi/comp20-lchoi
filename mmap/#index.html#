@@ -8,7 +8,7 @@
     <script type="text/javascript">
       var crd;
       var params;
-      var url = "http://infinite-citadel-7444.herokuapp.com/";
+      var url = "http://chickenofthesea.herokuapp.com/sendLocation";
       var request = new XMLHttpRequest();
       var characters;
       var charMarkers = new Object();
@@ -46,8 +46,8 @@
         charDists['batman'] = null;
         charDists['carmen'] = null;
         charDists['hescott'] = null;
-        charDists['nr'] = null;
-        charDists['snape'] = null;
+        charDists['nr'] = null; 
+ho       charDists['snape'] = null;
         charDists['waldo'] = null;
       }
 
@@ -68,7 +68,6 @@
       function dataReady() {
         if (request.readyState === 4 && request.status === 200) {
           data = JSON.parse(request.responseText);
-      console.log(data);
           characters = data.characters;
           students = data.students;
           parseData();
