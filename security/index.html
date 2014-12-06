@@ -29,7 +29,7 @@
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
       <li><span class="bold">Severity:</span> <span class="high">High.</span> This issue allows almost any code to be run client-side upon visiting the index page, making anybody who visits the page vulnerable to attack. Since it is also stored in the database, it would also be sent to anybody who requests database data through the API.</li>
       <li><span class="bold">Description:</span> Data sent by POST request through the /sendLocation path is not escaped, which allows JavaScript or HTML to be stored and executed when it is displayed on a client's browser. There is no sanitization of input.</li>
-      <li><span class="bold">Proof of Vulnerability:</span> <img src="../security/scriptinject.png" alt="Inject scripts" title="JavaScript injected through POST" /> <img src="../security/iframeinject.png" alt="Inject iframe" title="iframe injected through POST" /></li>
+      <li><span class="bold">Proof of Vulnerability:</span> <br><img src="../security/scriptinject.png" alt="Inject scripts" title="JavaScript injected through POST" /> <img src="../security/iframeinject.png" alt="Inject iframe" title="iframe injected through POST" /></li>
       <li><span class="bold">Resolution:</span> This issue can be resolved by escaping user input before entering it into the database. For example, "<" and ">" can be escaped by using "&#60;" and "&#62;", respectively.</li>
     </ul>
   </p>
@@ -38,8 +38,8 @@
     <ul>
       <li><span class="bold">Issue:</span> The latitude and longitude values are not checked on POST requests, so they are not required to even be floats. Login is also not checked to see if it is a valid login or even a string.</li>
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
-      <li><span class="bold">Severity:</span> <span class="med">Medium.</span> </li>
-      <li><span class="bold">Description:</span> </li>
+      <li><span class="bold">Severity:</span> <span class="med">Medium.</span> Since the inputs are not sanitized, it allows for vulnerabilities such as XSS as demonstrated above. Moreover, since inputs may not be valid before being stored in the database, any responses to API requests cannot be trusted, basically rendering the API useless.</li>
+      <li><span class="bold">Description:</span> After finding that the "login" parameter could be a script or HTML tag, I realized that inputs were not being checked and so it would be likely that latitude and longitude were also susceptible to gibberish input.</li>
       <li><span class="bold">Proof of Vulnerability:</span> <br><img src="../security/invallatlng.png" alt="invalid input for latitude and longitude" title="invalid input for latitude and longitude" /></li>
       <li><span class="bold">Resolution: Latitude can be verified to see if it is a float value between +90 degrees and -90 degrees. Longitude can be checked to see if it is a float value between -180 degrees and +180 degrees. Login verification is exponentially more difficult because ideally it would require user authentication to verify a person's identity. Otherwise </span> </li>
     </ul>
@@ -51,7 +51,7 @@
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
       <li><span class="bold">Severity:</span> <span class="low">Low.</span> </li>
       <li><span class="bold">Description:</span> </li>
-      <li><span class="bold">Proof of Vulnerability:</span> <img src="../security/latlngeq.png" alt="Latitude and Longitude equal" title="Latitude and Longitude are equal" /></li>
+      <li><span class="bold">Proof of Vulnerability:</span> <br><img src="../security/latlngeq.png" alt="Latitude and Longitude equal" title="Latitude and Longitude are equal" /></li>
       <li><span class="bold">Resolution:</span> Resolution of this issue is extremely easy. Instead of setting longitude to "request.body.lat", it should be set to "request.body.lng".</li>
     </ul>
   </p>
