@@ -1,7 +1,11 @@
 body {
     font-family: Helvetica, arial, sans-serif;
     font-size: 14px;
-    background-color: #FFF3C5;
+    background-color: #E8E5C2;
+}
+
+h2{
+    text-decoration: underline;
 }
 
 #content{
