@@ -41,7 +41,7 @@
       <li><span class="bold">Severity:</span> <span class="med">Medium.</span> Since the inputs are not sanitized, it allows for vulnerabilities such as XSS as demonstrated above. Moreover, since inputs may not be valid before being stored in the database, any responses to API requests cannot be trusted, basically rendering the API useless.</li>
       <li><span class="bold">Description:</span> After finding that the "login" parameter could be a script or HTML tag, I realized that inputs were not being checked and so it would be likely that latitude and longitude were also susceptible to gibberish input.</li>
       <li><span class="bold">Proof of Vulnerability:</span> <br><img src="../security/invallatlng.png" alt="invalid input for latitude and longitude" title="invalid input for latitude and longitude" /></li>
-      <li><span class="bold">Resolution: Latitude can be verified to see if it is a float value between +90 degrees and -90 degrees. Longitude can be checked to see if it is a float value between -180 degrees and +180 degrees. Login verification is exponentially more difficult because ideally it would require user authentication to verify a person's identity. Otherwise </span> </li>
+      <li><span class="bold">Resolution:</span> Latitude can be verified to see if it is a float value between +90 degrees and -90 degrees. Longitude can be checked to see if it is a float value between -180 degrees and +180 degrees. Login verification is exponentially more difficult because ideally it would require user authentication to verify a person's identity. Otherwise user identitiy can not be trusted.</span> </li>
     </ul>
   </p>
 
@@ -49,12 +49,15 @@
     <ul>
       <li><span class="bold">Issue:</span> The latitude and longitude are always set to the latitude parameter while longitude is ignored on POST requests.</li>
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
-      <li><span class="bold">Severity:</span> <span class="low">Low.</span> </li>
-      <li><span class="bold">Description:</span> </li>
-      <li><span class="bold">Proof of Vulnerability:</span> <br><img src="../security/latlngeq.png" alt="Latitude and Longitude equal" title="Latitude and Longitude are equal" /></li>
+      <li><span class="bold">Severity:</span> <span class="low">Low.</span> Although this is not exactly a security vulnerability, it is a huge detriment to the purpose of the server, which is to hold geolocation data.</li>
+      <li><span class="bold">Description:</span> While I was checking that latitude and longitude are not verified to be floats, I discovered that longitude was not being set to what I gave the server, but was rather being set to the latitude value.</li>
+      <li><span class="bold">Proof of Vulnerability:</span> All latitudes and longitudes are the same.<br><img src="../security/latlngeq.png" alt="Latitude and Longitude equal" title="Latitude and Longitude are equal" /></li>
       <li><span class="bold">Resolution:</span> Resolution of this issue is extremely easy. Instead of setting longitude to "request.body.lat", it should be set to "request.body.lng".</li>
     </ul>
   </p>
+
+  <h2>Conclusion</h2>
+  <p></p>
   
 </div>  
 </body>
