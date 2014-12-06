@@ -15,7 +15,7 @@
   <p>The assessment below provides an analysis of security issues in the app and general improvements, along with possible solutions to the problems.</p>
 
   <h2>Methodology</h2>
-  <p>Testing was initially performed with the live site available at <a href="http://infinite-citadel-7444.herokuapp.com"/>. I made requests to the API with my own javascript code and also used Tamper Data for Firefox to analyze requests and responses. Afterwards, I looked at the actual source code in hopes of finding further vulnerabilities in the application.</p>
+  <p>Testing was initially performed with the live site available at <a href="http://infinite-citadel-7444.herokuapp.com">http://infinite-citadel-7444.herokuapp.com</a>. I made requests to the API with my own javascript code and also used Tamper Data for Firefox to analyze requests and responses. Afterwards, I looked at the actual source code in hopes of finding further vulnerabilities in the application.</p>
 
   <h2>Abstract of Findings</h2>
   <p>Most of the security vulnerabilities in the application are a result of failing to check the input for correctness. Not only is this insecure because it allows malicious code to be run through the browser, but it also defeats the purpose of allowing API requests, as any data the application returns cannot be trusted.</p>
