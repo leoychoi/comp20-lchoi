@@ -29,7 +29,7 @@
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
       <li><span class="bold">Severity:</span> <span class="high">High.</span> This issue allows almost any code to be run client-side upon visiting the index page, making anybody who visits the page vulnerable to attack. Since it is also stored in the database, it would also be sent to anybody who requests database data through the API.</li>
       <li><span class="bold">Description:</span> Data sent by POST request through the /sendLocation path is not escaped, which allows JavaScript or HTML to be stored and executed when it is displayed on a client's browser. There is no sanitization of input.</li>
-      <li><span class="bold">Proof of Vulnerability:</span> <img src="/scriptinject.png" alt="Inject scripts" title="JavaScript injected through POST" /> <img src="/iframeinject.png" alt="Inject iframe" title="iframe injected through POST" /></li>
+      <li><span class="bold">Proof of Vulnerability:</span> <img src="../scriptinject.png" alt="Inject scripts" title="JavaScript injected through POST" /> <img src="../iframeinject.png" alt="Inject iframe" title="iframe injected through POST" /></li>
       <li><span class="bold">Resolution:</span> </li>
   </p>
 
