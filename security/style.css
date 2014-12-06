@@ -1,0 +1,13 @@
+body {
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 14px;
+    background-color: #FFF3C5;
+}
+
+#content{
+    width: 900px;
+    text-align: justify;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+}
