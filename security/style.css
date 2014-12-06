@@ -15,3 +15,12 @@ h2{
     left: 0px;
     right: 0px;
 }
+
+.high{
+    color: #D21C0F;
+    font-weight: bold;
+}
+
+.bold{
+    font-weight: bold;
+}
