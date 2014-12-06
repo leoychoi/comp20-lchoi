@@ -30,10 +30,11 @@
       <li><span class="bold">Severity:</span> <span class="high">High.</span> This issue allows almost any code to be run client-side upon visiting the index page, making anybody who visits the page vulnerable to attack. Since it is also stored in the database, it would also be sent to anybody who requests database data through the API.</li>
       <li><span class="bold">Description:</span> Data sent by POST request through the /sendLocation path is not escaped, which allows JavaScript or HTML to be stored and executed when it is displayed on a client's browser. There is no sanitization of input.</li>
       <li><span class="bold">Proof of Vulnerability:</span> <img src="../security/scriptinject.png" alt="Inject scripts" title="JavaScript injected through POST" /> <img src="../security/iframeinject.png" alt="Inject iframe" title="iframe injected through POST" /></li>
-      <li><span class="bold">Resolution:</span> </li>
+      <li><span class="bold">Resolution:</span> This issue can be resolved by escaping user input before entering it into the database. For example, "<" and ">" can be escaped by using "&#60;" and "&#62;", respectively.</li>
+    </ul>
   </p>
 
-  <p>1. Cross-Site Scripting
+  <p>2. 
     <ul>
       <li><span class="bold">Issue:</span> Possible to inject scripts into the database which are then run client-side.</li>
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
@@ -41,9 +42,10 @@
       <li><span class="bold">Description:</span> </li>
       <li><span class="bold">Proof of Vulnerability:</span> </li>
       <li><span class="bold">Resolution:</span> </li>
+    </ul>
   </p>
 
-  <p>1. Cross-Site Scripting
+  <p>3. Cross-Site Scripting
     <ul>
       <li><span class="bold">Issue:</span> Possible to inject scripts into the database which are then run client-side.</li>
       <li><span class="bold">Location:</span> /sendLocation POST requests</li>
@@ -51,6 +53,7 @@
       <li><span class="bold">Description:</span> </li>
       <li><span class="bold">Proof of Vulnerability:</span> </li>
       <li><span class="bold">Resolution:</span> </li>
+    </ul>
   </p>
   
 </div>  
