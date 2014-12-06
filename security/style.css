@@ -21,6 +21,16 @@ h2{
     font-weight: bold;
 }
 
+.med{
+    color: #FFAB00;
+    font-weight: bold;
+}
+
+.low{
+    color: #FFFF4B;
+    font-weight: bold;
+}
+
 .bold{
     font-weight: bold;
 }
