@@ -1,4 +1,4 @@
-Leo Choi's private repo for COMP20
+Leo Choi's private repo for COMP20... now public
 
 Lab 9 Questions:
 1. This repository holds solutions to the assignments and labs for the class.
